@@ -9,20 +9,16 @@ while True:
 
     for new_client in server.get_new_clients():
         clients.append(new_client)
-        server.send_message(new_client, "You are added to the server: client#{}.".format(new_client))
+        server.send_message(new_client, "added to the client list")
 
     for disconnected_client in server.get_disconnected_clients():
         if disconnected_client not in clients:
             continue
-
         clients.remove(disconnected_client)
-
 
     for sender_client, message in server.get_messages(): 
         if sender_client not in clients:
             continue
-
-        for client in clients:
-            print(message)
-            
+        print(f'Message coming from client #{sender_client}')
+        print(message)
         print(f'Number of clients: {len(clients)}')
