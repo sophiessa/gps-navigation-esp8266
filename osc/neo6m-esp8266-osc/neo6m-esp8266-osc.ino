@@ -3,7 +3,7 @@
 #include <OSCMessage.h>
 
 char ssid[] = "WIFI_SSID";
-char pass[] = "WIFI_PASSWORD";
+char password[] = "WIFI_PASSWORD";
 
 WiFiUDP Udp;
 
@@ -15,7 +15,7 @@ void setup() {
   Serial.begin(115200);
   Serial.print("Connecting to ");Serial.println(ssid);
   
-  WiFi.begin(ssid, pass);
+  WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
